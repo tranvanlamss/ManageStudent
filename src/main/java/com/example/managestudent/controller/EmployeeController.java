@@ -34,7 +34,7 @@ public class EmployeeController {
         if (size == null || size <= 0) {
             size = 120;
         }
-        var messageResponse = employeeService.filterEmployee(firstName, lastName, email, page, size);
+        var messageResponse = employeeService.filterEmployee(firstName, lastName, email, page -1, size);
         return ResponseEntity.ok(messageResponse);
 
     }

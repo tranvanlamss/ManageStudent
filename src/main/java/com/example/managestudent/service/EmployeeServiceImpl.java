@@ -41,7 +41,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 
         Long totalElement = manageCustomRepository.countTotalElement(firstName, lastName, email);
 
-        Long totalPages = (long) ceil(totalElement / size);
+        Long totalPages = (totalElement + size - 1) / size;
+
         MessageResponse resp = new MessageResponse();
         resp.setResult(list);
         resp.setResponseCode("SUCCESS");
