@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "ipfs.properties",
+      "type": "com.javatechie.config.IpfsProperties",
+      "sourceType": "com.javatechie.config.IpfsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ipfs.properties.host",
+      "type": "java.lang.String",
+      "sourceType": "com.javatechie.config.IpfsProperties"
+    },
+    {
+      "name": "ipfs.properties.path",
+      "type": "java.lang.String",
+      "sourceType": "com.javatechie.config.IpfsProperties"
+    },
+    {
+      "name": "ipfs.properties.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.javatechie.config.IpfsProperties"
+    },
+    {
+      "name": "ipfs.properties.scheme",
+      "type": "java.lang.String",
+      "sourceType": "com.javatechie.config.IpfsProperties"
+    }
+  ],
+  "hints": []
+}

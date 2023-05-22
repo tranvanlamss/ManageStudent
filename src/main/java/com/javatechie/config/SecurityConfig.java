@@ -49,7 +49,7 @@ public class SecurityConfig {
                         "/api/v1/store/filter")
                         .permitAll()
                 .and()
-                .authorizeHttpRequests().requestMatchers("/api/v1/store/create")
+                .authorizeHttpRequests().requestMatchers("/api/v1/store/create","/api/v1/file/upload")
                 .authenticated().and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
