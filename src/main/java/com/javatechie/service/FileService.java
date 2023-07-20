@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
@@ -109,6 +110,24 @@ public class FileService {
     }
 
     public String saveLocalStorage(MultipartFile multipartFile, String folderName) {
-        return null;
+        try {
+            // Create the destination folder if it doesn't exist
+            String destinationFolderPath = "ipfs-desktop/" + folderName;
+            File destinationFolder = new File(destinationFolderPath);
+            if (!destinationFolder.exists()) {
+                destinationFolder.mkdirs();
+            }
+
+            // Save the file to the destination folder
+            String originalFilename = multipartFile.getOriginalFilename();
+            String destinationFilePath = destinationFolderPath + "/" + originalFilename;
+            File destinationFile = new File(destinationFilePath);
+            multipartFile.transferTo(destinationFile);
+
+            return destinationFilePath;
+        } catch (Exception e) {
+            logger.error("Failed to save file to local storage: {}", e.getMessage());
+            return null;
+        }
     }
 }

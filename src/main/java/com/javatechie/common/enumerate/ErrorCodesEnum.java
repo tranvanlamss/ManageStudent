@@ -1,4 +1,4 @@
-package com.javatechie.enumerate;
+package com.javatechie.common.enumerate;
 
 public enum ErrorCodesEnum {
     UNAUTHORIZED("UNAUTHORIZED"),
