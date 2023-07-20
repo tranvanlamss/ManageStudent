@@ -45,6 +45,7 @@ public class SecurityConfig {
         return http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/login",
+                        "/api/v1/auth/refreshToken",
                         "/api/v1/user/create",
                         "/api/v1/store/filter")
                         .permitAll()

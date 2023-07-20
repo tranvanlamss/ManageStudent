@@ -1,10 +1,12 @@
 package com.javatechie.service;
 
+import com.javatechie.entity.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import java.security.Key;
@@ -27,6 +29,8 @@ public class JwtService {
         return extractClaim(token, Claims::getExpiration);
     }
 
+    @Value("${token.expired}")
+    private Integer tokenExpired;
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -57,13 +61,13 @@ public class JwtService {
     }
 
     private String createToken(Map<String, Object> claims, String userName) {
-        Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);
+//        Date now = new Date();
+//        Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userName)
-                .setIssuedAt(now)
-                .setExpiration(expiryDate)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis()+1000*60*2*tokenExpired))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 

@@ -19,6 +19,7 @@ public class UserController {
     private UserService userService;
     @PostMapping("/create")
     public HttpEntity<Object> create(@RequestBody UserDTO userDTO) {
+        System.out.println("User Dto:" + userDTO);
         return ResponseEntity.ok(userService.createUser(userDTO));
     }
 }

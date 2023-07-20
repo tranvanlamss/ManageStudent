@@ -1,4 +1,4 @@
-package com.javatechie.enumerate;
+package com.javatechie.common.enumerate;
 
 import java.util.HashMap;
 import java.util.Map;

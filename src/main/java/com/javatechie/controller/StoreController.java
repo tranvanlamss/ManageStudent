@@ -15,7 +15,7 @@ public class StoreController {
     private StoreService storeService;
 
     @PostMapping("/create")
-    public HttpEntity<Object> create(@RequestBody StoreDTO storeDTO) {
+    public HttpEntity<Object> create(@ModelAttribute StoreDTO storeDTO) {
         return ResponseEntity.ok(storeService.createStore(storeDTO));
     }
 

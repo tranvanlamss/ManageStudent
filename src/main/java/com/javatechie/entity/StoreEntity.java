@@ -23,4 +23,6 @@ public class StoreEntity {
 
     @Column(name = "owner_name")
     String ownerName;
+
+
 }

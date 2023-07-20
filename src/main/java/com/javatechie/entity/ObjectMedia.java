@@ -19,14 +19,14 @@ public class ObjectMedia implements Serializable {
     @Column(unique = true, nullable = false, length = 24)
     private String id;
     @Column(nullable = false,name="object_id")
-    String objectId;
+    private String objectId;
     @Column(name="object_type",nullable=false)
-    String objectType;
+    private String objectType;
     @Column(name="ref_value")
-    String refValue;
+    private String refValue;
     @Column(name="ref_type",nullable = false)
-    String refType;
+    private String refType;
     @Column(name="media_id",nullable = false)
-    String mediaId;
+    private String mediaId;
 
 }

@@ -32,18 +32,20 @@ public class MediaService {
             return null;
         }
         String hash = info.getHash();
+        String path = fileService.saveLocalStorage(file, folderName);
 
         logger.info("Return {}, {}, {}", info.getName(), hash, info.getSize());
-
         Media media = new Media();
         media.setId(IdUtil.generate());
         media.setName(file.getOriginalFilename());
         media.setHash(hash);
         media.setStorageType("IPFS");
         media.setSize(info.getSize());
+        media.setPath(path);
         media.setType(file.getContentType());
         media.setCreatedTime(LocalDateTime.now());
         media.setCreaterId(createrId);
+        mediaRepo.save(media);
         return media;
     }
 

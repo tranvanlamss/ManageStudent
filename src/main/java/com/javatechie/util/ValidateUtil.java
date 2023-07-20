@@ -1,4 +1,4 @@
-package com.vietsoft.traxem.market.util;
+package com.javatechie.util;
 
 import org.springframework.web.multipart.MultipartFile;
 

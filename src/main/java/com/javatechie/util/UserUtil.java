@@ -1,10 +1,12 @@
 package com.javatechie.util;
 
-import lombok.Data;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-@Data
-public class UserUtil {
+
+
+
+public final class UserUtil {
+
     public static String getUserName() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

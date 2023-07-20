@@ -9,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 
@@ -21,7 +20,6 @@ import java.time.LocalDateTime;
 @Table(name = "media")
 public class Media {
     @Id
-    @GenericGenerator(name = "objectid-generator", strategy = "com.javatechie.common.ObjectIDGenerator")
     @Column(unique=true, nullable=false, length=24)
     String id;
 
