@@ -29,6 +29,7 @@ public class StoreController {
         if (size == null || size <= 0) {
             size = 120;
         }
+        System.out.println("Hello");
         var messageResponse = storeService.filterStore(storeName, page , size);
         return ResponseEntity.ok(messageResponse);
     }
