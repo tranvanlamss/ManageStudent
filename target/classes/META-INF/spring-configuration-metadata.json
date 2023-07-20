@@ -20,7 +20,8 @@
     {
       "name": "ipfs.properties.port",
       "type": "java.lang.Integer",
-      "sourceType": "com.javatechie.config.IpfsProperties"
+      "sourceType": "com.javatechie.config.IpfsProperties",
+      "defaultValue": 0
     },
     {
       "name": "ipfs.properties.scheme",
